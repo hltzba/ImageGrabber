@@ -11,11 +11,10 @@ namespace ImageGrabber.Grabber
     {
         string Name { get; }
 
-        /// <summary>
-        /// 获得最新的记录
-        /// </summary>
-        /// <param name="keywords"></param>
-        /// <returns></returns>
-        PostItem[] GetLatest(string[] keywords);
+        string Url { get; }
+
+        List<PostDesc> GetPostItem();
+
+        void SavePic(List<PostDesc> postinfos);
     }
 }

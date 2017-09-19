@@ -36,6 +36,7 @@ namespace ImageGrabber
 
             // var nodes = doc.DocumentNode.SelectNodes("//*[@id='normalthread_*']/tr[1]/th/a[2]");
 
+            //获取帖子集合
             var nodes = doc.DocumentNode.SelectNodes("//*[contains(@id,'normalthread_')]/tr[1]/th/a[2]");
             if (nodes != null && nodes.Count > 0)
             {
@@ -49,8 +50,13 @@ namespace ImageGrabber
                     }
                     int i = dataGridView1.Rows.Add();
                     var row = dataGridView1.Rows[i];
-
-                    row.Cells["colTitle"].Value = title;
+                    string id = "";
+                    string[] hrefsplit = href.Split('-');
+                    if (hrefsplit != null && hrefsplit.Length > 2)
+                    {
+                        id = hrefsplit[1];
+                    }
+                    row.Cells["colTitle"].Value = id + title;
                     row.Cells["colUrl"].Value = "http://c.n.h.k.xbluntan.space/" + href;
                     // listView1.Items.Add("http://c.n.h.k.xbluntan.space/" + href);
                     // textBox1.AppendText("http://c.n.h.k.xbluntan.space/" + href + "\r\n");

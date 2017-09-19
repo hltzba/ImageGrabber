@@ -73,5 +73,9 @@ namespace ImageGrabber.Grabber
 
             return doc;
         }
+
+        protected void SaveData()
+        {
+        }
     }
 }
